@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2>Profile</h2>
+    <div class="form-group">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" value="{{ user.username }}" disabled>
+    </div>
+    <form id="profileForm" method="POST" action="{{ url_for('profile') }}">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control", disabled="disabled") }}
+      </div>
+      <div class="form-group">
+        {{ form.phone.label(class="form-label") }}
+        {{ form.phone(class="form-control", disabled="disabled") }}
+      </div>
+      <div class="form-group">
+        <!-- Initially show only the Change button -->
+        <button type="button" id="editButton" class="btn btn-secondary">Change</button>
+        <button type="submit" id="saveButton" class="btn btn-primary" style="display: none;">Save</button>
+        <button type="button" id="cancelButton" class="btn btn-warning" style="display: none;">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // When the "Change" button is clicked, enable the email and phone fields
+  document.getElementById("editButton").addEventListener("click", function(){
+      document.querySelector("input[name='email']").removeAttribute("disabled");
+      document.querySelector("input[name='phone']").removeAttribute("disabled");
+      // Hide the Change button and show Save and Cancel
+      document.getElementById("editButton").style.display = "none";
+      document.getElementById("saveButton").style.display = "inline-block";
+      document.getElementById("cancelButton").style.display = "inline-block";
+  });
+
+  // When the Cancel button is clicked, reload the page to discard changes
+  document.getElementById("cancelButton").addEventListener("click", function(){
+      location.reload();
+  });
+</script>
+{% endblock %}

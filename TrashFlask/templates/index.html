@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Home - Trash Classification App{% endblock %}
+{% block content %}
+<h2>Trash Statistics</h2>
+<div class="row">
+  <div class="col-md-3 mb-3">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Glass Trash</h5>
+        <p class="card-text">{{ stats.get('glass trash', 0) }}</p>
+      </div>
+    </div>
+  </div>  
+  <div class="col-md-3">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Hazardous Trash</h5>
+        <p class="card-text">{{ stats.get('hazardous trash', 0) }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Recyclable Trash</h5>
+        <p class="card-text">{{ stats.get('recyclables', 0) }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Non-Recyclable Trash</h5>
+        <p class="card-text">{{ stats.get('non-recycable trash', 0) }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

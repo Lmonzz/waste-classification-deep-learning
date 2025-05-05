@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<h3>Manage Users</h3>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <a href="{{ url_for('update_user', user_id=user.id) }}" class="btn btn-primary btn-sm">Edit</a>
+        <a href="{{ url_for('delete_user', user_id=user.id) }}" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h3>Manage Trash</h3>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Numbers</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for trash_item in trash %}
+    <tr>
+      <td>{{ trash_item.id }}</td>
+      <td>{{ trash_item.name }}</td>
+      <td>{{ trash_item.category }}</td>
+      <td>{{ trash_item.numbers }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('reset_trash', trash_id=trash_item.id) }}">
+          <button type="submit" class="btn btn-warning btn-sm">Reset Count</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
