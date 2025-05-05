@@ -46,7 +46,7 @@ This project is a web-based trash classification system that allows users to upl
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/trash-classification.git
+git clone https://github.com/Lmonzz/trash-classification.git
 cd trash-classification
 ```
 
