@@ -41,6 +41,10 @@ This project is a web-based trash classification system that allows users to upl
 └── requirements.txt        # Python dependencies
 ```
 
+## 📷 Prototype
+
+<img src="prototype.png" alt="Smart Trash Classification Prototype" width="400"/>
+
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
