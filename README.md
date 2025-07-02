@@ -43,7 +43,9 @@ This project is a web-based trash classification system that allows users to upl
 
 ## 📷 Prototype
 
-<img src="prototype.png" alt="Smart Trash Classification Prototype" width="400"/>
+<p align="center">
+  <img src="prototype.png" alt="Smart Trash Prototype" width="400"/>
+</p>
 
 ## 🚀 Getting Started
 
